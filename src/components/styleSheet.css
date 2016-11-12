@@ -1,3 +1,25 @@
-.monkey {
-  color:  red;
+.account_container{
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.account_info_list {
+  list-style-type: none;
+  text-indent: 50px;
+  margin-top: 20px;
+}
+
+.account_info_list li{
+  margin-bottom: 20px;
+}
+
+.find_container{
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.find_container p {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
