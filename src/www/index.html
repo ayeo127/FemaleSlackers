@@ -17,6 +17,31 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
     <link rel="stylesheet" href="bundle.css">
+
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+        api_key: 86eut26yzt19t7
+        onLoad: onLinkedInLoad
+        authorize: true
+        lang: en_US
+    </script>
+
+    <script type="text/javascript">
+        function onLinkedInLoad() {
+            IN.User.authorize(onLinkedInAuth);
+        }
+
+        function onLinkedInAuth() {
+            // IN.API.Profile("me").fields("id","first-name", "last-name", "email-address").result(displayProfiles);
+            console.log("eh");
+            setTimeout(function() {IN.User.logout(outLinkedInAuth); },5000);
+        }
+
+        function outLinkedInAuth() {
+            // IN.API.Profile("me").fields("id","first-name", "last-name", "email-address").result(displayProfiles);
+            console.log("BYEYBE")
+        }
+    </script>
+
   </head>
 
   <body>
