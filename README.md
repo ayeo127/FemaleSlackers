@@ -1,11 +1,12 @@
-# Splitspense
+# Female Accelerators
 
 ### About
-- Split bills among friends easily while you are on a trip
-- Keep track amount you and your friends spend and owned hustle free
+- An app that allows users to connect with professionals with similiar 
+background
+- To build a community based on your interest
 
 ### Goal
-- Project to practice React and Firebase while having fun. :)
+
 
 ### Getting Started
 1. Clone this repository
