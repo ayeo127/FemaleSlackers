@@ -31,17 +31,23 @@ const App = () => (
 
   <section className="mdl-layout__tab-panel is-active" id="scroll-tab-1">
 
-{/*recommended user   */}
-    <div className="mdl-tabs__panel">
-      <h2 className="mdl-layout-title" style={divStyle}> Name of what</h2>
-        <ul className={myStyle.monkey}>
-          <li>Occupation:</li>
-          <li>Skills: </li>
-          <li>Slack joined:</li>
-          <li>Contact: </li>
-        </ul>
+<div className={myStyle.find_container}>
+  <div>
+    <p>Search your thing.</p>
+  </div>
 
-    </div>
+  <form>
+    <input type="text" name ="name" />
+    <input type ="submit" value="meow"/>
+  </form>
+
+  <p> Recommended users to contact</p>
+
+  <p> Recommended Slack Group to join</p>
+</div>
+
+
+
 
   </section>
 
@@ -52,7 +58,23 @@ const App = () => (
 
 
   <section className="mdl-layout__tab-panel" id="scroll-tab-2">
-    <div className="page-content">Your account info</div>
+    <div className="page-content">
+
+    <div className={myStyle.account_container}>
+      <h2  className={myStyle.account_info_name}> Your name: </h2>
+        <ul className={myStyle.account_info_list}>
+          <li>Occupation:</li>
+          <li>Skills: </li>
+          <li>Slack joined:</li>
+          <li>Contact: </li>
+        </ul>
+
+    </div>
+
+
+
+
+    </div>
   </section>
   {/* <section className="mdl-layout__tab-panel" id="scroll-tab-3">
     <div className="page-content"></div>
@@ -68,10 +90,7 @@ const App = () => (
 </div>
 );
 
-const divStyle = {
-  color: 'blue'
 
-}
 
 
 export default App;
