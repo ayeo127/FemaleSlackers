@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
     <link rel="stylesheet" href="bundle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <script type="text/javascript" src="//platform.linkedin.com/in.js">
         api_key: 86eut26yzt19t7
@@ -31,9 +32,36 @@
         }
 
         function onLinkedInAuth() {
-            // IN.API.Profile("me").fields("id","first-name", "last-name", "email-address").result(displayProfiles);
             console.log("eh");
-            setTimeout(function() {IN.User.logout(outLinkedInAuth); },5000);
+            // $.ajax({
+            //     xhrFields: {
+            //         cors: true,
+            //     },
+            //     url: 'https://api.linkedin.com/v1/people/~?format=json',
+            //     type: 'GET',
+            //     crossDomain: true,
+            //     dataType: 'jsonp',
+            //     beforeSend: function (xhr) {
+            //         xhr.setRequestHeader('ccess-Control-Allow-Origin', '*');
+            //     },
+            //     success: function() { console.log("Success"); },
+            //     error: function() { console.log('Failed!'); },
+            // });
+
+            // IN.API.Raw("https://api.linkedin.com/v1/people/~?format=json").method("GET").body().result(processdata);
+
+            IN.API.Profile("me").result(processdata());
+            // $.get("https://api.linkedin.com/v1/people/~").done(function (data) {
+            //     console.log(data);
+            // });
+
+            // setTimeout(function() {IN.User.logout(outLinkedInAuth); },5000);
+        }
+
+        function processdata(data) {
+
+            console.log(data);
+            // $("#my-profile").text(response)
         }
 
         function outLinkedInAuth() {
@@ -41,7 +69,6 @@
             console.log("BYEYBE")
         }
     </script>
-
   </head>
 
   <body>
@@ -49,5 +76,14 @@
     <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <script src="vendor.bundle.js"></script>
     <script src="bundle.js"></script>
+
+    <div class="page">
+        <h1>My profile</h1>
+
+        <ul id="my-profile">
+            <li>My profile info will populate here</li>
+        </ul>
+    </div>
+
   </body>
 </html>
