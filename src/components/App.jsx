@@ -1,8 +1,5 @@
 import React from 'react';
-// import 'react-toolbox/lib/commons.scss';           // Import common styles
 import PurpleAppBar from './AppBar/AppBar.jsx';      // AppBar with simple overrides
-import SuccessButton from './Button/SuccessButton.jsx';    // A button with complex overrides
-import { Button } from 'react-toolbox/lib/button'; // Bundled component import
 import myStyle from './styleSheet.css'
 
 
