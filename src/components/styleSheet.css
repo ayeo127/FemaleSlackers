@@ -1,3 +1,9 @@
+.searchInput {
+  min-width: 32px;
+  width: 800px;
+  min-height: 32px;
+}
+
 .account_container{
   padding-top: 20px;
   paddng-bottom: 20px;
