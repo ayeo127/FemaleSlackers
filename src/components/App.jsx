@@ -8,6 +8,17 @@ import MyAccount from './MyAccount.jsx';
 class App extends React.Component {
     constructor(props) {
       super(props);
+      this.state = {
+        myAccount: {
+          "firstName": "Frodo",
+          "headline": "Tech Lead from Google",
+          "id": "1R2RtA",
+          "lastName": "Baggins",
+          "siteStandardProfileRequest": {
+          "url": "https://www.linkedin.com/profile/view?id=…"
+          }
+        }
+      }
     }
 
     _clickMe() {
@@ -46,12 +57,12 @@ class App extends React.Component {
           </form>
 
           <RecommendedConnections />
-          <RecommendedSlack/>
+          <RecommendedSlack />
         </div>
 
         </section>
         <section className="mdl-layout__tab-panel" id="scroll-tab-2">
-          <MyAccount />
+          <MyAccount myAccountData={this.state.myAccount}/>
         </section>
         </main>
         </div>
