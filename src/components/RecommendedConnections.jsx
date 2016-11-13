@@ -15,21 +15,26 @@ class RecommendedConnections extends React.Component {
     }
 
 
-    createChart() {
+    _createTable() {
        let myJSON =  this.props.myRecommendationsData
-       let columnLength = myJSON.length
-      var Table = Reactable.Table;
+      // let columnLength = myJSON.length
+       let Table = Reactable.Table;
+       let Tr = Reactable.Tr;
 
-        return (
+        //   <Table className="table">
+         //
+        //     myJSON.map(function(row, i) {
+        //       return (<Tr data={row} key={i}/>);
+        //     })
+        //  </Table>
 
-          <Table className="table" data={[
-              { Name: 'Griffin Smith', Age: 18 },
-              { Age: 23,  Name: 'Lee Salminen' },
-              { Age: 28, Position: 'Developer' },
-            ]} />
-
-              )
+         let rows = [];
+         for (let i=0; i < myJSON.length; i++) {
+              rows.push(<Tr data={myJSON[i]} onClick={this._clickMe} />);
           }
+        return (<Table className="table"> {rows}</Table>);
+
+    }
 
 
     render(){
@@ -37,7 +42,7 @@ class RecommendedConnections extends React.Component {
       return (
         <div>
           <p>Recommended users to contact</p>
-          {this.createChart()}
+          {this._createTable()}
 
 
           <button onClick={this._clickMe}>Test</button>
