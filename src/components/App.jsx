@@ -17,7 +17,11 @@ class App extends React.Component {
           "siteStandardProfileRequest": {
           "url": "https://www.linkedin.com/profile/view?id=…"
           }
-        }
+        },
+
+        myRecommendations: [{name: 'Julia', occupation:'software engineer', company: 'Amazon'},
+      {name: "Mary", occupation:'recruiter', company: 'Apple'},
+      {name: "Ellen", occupation: '', company:'IBM'}]
       }
     }
 
@@ -56,7 +60,7 @@ class App extends React.Component {
             <input type ="submit" value="meow"/>
           </form>
 
-          <RecommendedConnections />
+          <RecommendedConnections myRecommendationsData = {this.state.myRecommendations}/>
           <RecommendedSlack />
         </div>
 
