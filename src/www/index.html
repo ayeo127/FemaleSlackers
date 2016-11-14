@@ -28,7 +28,7 @@
     </script>
 
     <script type="text/javascript">
-       
+
         var profile = {
             firstName: "Frodo",
             headline: "Hobbit", 
@@ -53,6 +53,7 @@
 
         function onLinkedInAuth() {
             IN.API.Profile("me").result( function(responseText) {
+                console.log('my profile');
                 console.log(responseText)
                 var response = responseText.values[0];
                 profile.firstName = response.firstName;
@@ -62,6 +63,7 @@
                 profile.pictureUrl = response.pictureUrl;
 
                 IN.API.Raw("/people/~:(location)?format=json").result(function(responseText){
+                    console.log('/people/~:(location)');
                     console.log(responseText);
                     if (responseText) {
                         profile.location_name = responseText.location.name;
@@ -70,6 +72,7 @@
                 })
 
                 IN.API.Raw("/people/~:(industry)?format=json").result(function(responseText){
+                    console.log('/people/~:(industry)');
                     console.log(responseText);
                     if (responseText.length) {
                         profile.industry_code =  responseText.industry.code;
@@ -79,6 +82,7 @@
                 })
 
                 IN.API.Raw("/people/~:(positions)?format=json").result(function(responseText){
+                    console.log('/people/~:(positions)');
                     console.log(responseText);
                     if (responseText.length) {
                         profile.positions_id = responseText.positions[0].id;
@@ -88,6 +92,7 @@
                 })
 
                 IN.API.Raw("/people/~:(specialties)?format=json").result(function(responseText){
+                    console.log('/people/~:(specialties)');
                     console.log(responseText);
                     if (responseText) {
                         profile.specialties = responseText.specialties;
@@ -96,16 +101,12 @@
                 console.log(profile);
             });
 
-             // setTimeout(function() {IN.User.logout(outLinkedInAuth); },5000);
+            setTimeout(function() {IN.User.logout(outLinkedInAuth); },5000);
         }
-        // function outLinkedInAuth() {
-        //     console.log("BYEYBE")
-        // }
+         function outLinkedInAuth() {
+             console.log("BYEYBE")
+         }
 
-        // function what() {
-        //     console.log("sdf");
-        // }
-        // module.exports = what;
     </script>
 
     <script type="text/javascript" src="index.js">  

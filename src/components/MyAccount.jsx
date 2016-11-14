@@ -14,11 +14,11 @@ export default class MyAccount extends React.Component {
         <div className={myStyle.account_container}>
           <h2  className={myStyle.account_info_name}> {fullName} </h2>
             <ul className={myStyle.account_info_list}>
-
+              <li>Location: {this.props.myAccountData.location_name}</li>
               <li>Occupation: {this.props.myAccountData.headline}</li>
-              <li>Skills: </li>
-              <li>Slack joined:</li>
-              <li>Contact: </li>
+              <li>Specialties: {this.props.myAccountData.specialties}</li>
+              <li>Career Goals: {this.props.myAccountData.careergoals}</li>
+              <li>Community Joined: {this.props.myAccountData.industry_groups}</li>
             </ul>
         </div>
       </div>

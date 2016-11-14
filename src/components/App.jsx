@@ -10,13 +10,23 @@ class App extends React.Component {
         super(props);
         this.state = {
             myAccount: {
-                "firstName": "Frodo",
-                "headline": "Tech Lead from Google",
-                "id": "1R2RtA",
-                "lastName": "Baggins",
-                "siteStandardProfileRequest": {
-                    "url": "https://www.linkedin.com/profile/view?id=…"
-                }
+                "firstName": "Leanne",
+                "headline": "Software Engineer at Stytch",
+                "id": "1-asfAsc",
+                "lastName": "Zhang",
+                "pictureUrl": "https://media.licdn.com/mpr/mprx/0_-LLZe1XrQ4-SlaTXZNj98kPAbpfSNgGMnFlZSF-ri4r2ASPzRLgnQkQA84_YcpTzYNP9h3WlEgDutMRJUnhk8FXgfgDDtMc4UnhUw6AKXy4TZ72kcFnzIt0T7HcjRM8d-zkN2ZNE6bX",
+                "location_name": "Vancouver",
+                "location_country_code": "Vancouver",
+                "industry_code": "45",
+                "industry_groups": "Vancouver React Developers",
+                "industry_description": "Technology",
+                "summary": "I'm a creative Software Engineer with over 2 years of working experience in the enterprise software industry." +
+                " I design and build beautiful business intelligence UI in React, JavaScript, ES6, HTML5, CSS3, node.js and program back-end services in Java. In my spare time, I enjoy mentoring at events in Ladies Learning and Code as well as Women in Computer Science club to encourage young girls to be in the field of technology.",
+                "specialties": "Web Development" ,
+                "careergoals": "Product Manager, Senior Software Engineer" ,
+                "positions_id": "124av-asfas",
+                "positions_title": "Software Engineer",
+                "positions_company": "Stytch"
             },
 
             myRecommendations: [
@@ -77,7 +87,6 @@ class App extends React.Component {
                         <div className="mdl-layout-spacer"></div>
             <span className="mdl-textfield--align-right">
                 <i className="material-icons">perm_identity</i>
-                <span>SIGN IN</span>
             </span>
                     </div>
 
