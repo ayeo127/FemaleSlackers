@@ -6,15 +6,15 @@ Your communities, your potential.
 but don't necessarily have the right guidance and networks to get there.
 
 ### Mission
-- Put your interest first and connect you to the right communities.
+- Put your interests first and connect you to the right communities.
 
 ### How was it made?
-- This is an app was made during the AngelHack 2-days hackathon event. Won 2nd prize in the Angel Hack #ladyproblem in Vancouver.
-- The code would be improved based on team's time.
+- This is an app made during the AngelHack 2-days hackathon event. Won 2nd prize in the Angel Hack #ladyproblem in Vancouver.
+- The code could be improved given more time.
 
 ### Key features
 - Allows users to connect with professionals with selected skills and positions
-- Connect Slack communities based on your interests
+- Connects Slack communities based on your interests
 
 ### Getting Started
 1. Clone this repository
