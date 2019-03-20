@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Accelerators!</title>
+    <title>LinkUp</title>
     <meta name="description" content="Splitting bills among friends made easy">
     <meta name="author" content="Leanne Zhang">
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
     <link rel="stylesheet" href="bundle.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <script type="text/javascript" src="//platform.linkedin.com/in.js">
@@ -27,48 +28,92 @@
     </script>
 
     <script type="text/javascript">
+
+        var profile = {
+            firstName: "Frodo",
+            headline: "Hobbit", 
+            id: "1-asfAsc",
+            lastName: "Baggins",
+            pictureUrl: "https://media.licdn.com/mpr/mprx/0_-LLZe1XrQ4-SlaTXZNj98kPAbpfSNgGMnFlZSF-ri4r2ASPzRLgnQkQA84_YcpTzYNP9h3WlEgDutMRJUnhk8FXgfgDDtMc4UnhUw6AKXy4TZ72kcFnzIt0T7HcjRM8d-zkN2ZNE6bX",
+            location_name: "Vancouver",
+            location_country_code: "Vancouver",
+            industry_code: "45",
+            industry_froups: "corp, fin",
+            industry_description: "Accounting",
+            summary: "Hello There",
+            specialties: "I like rings" ,
+            positions_id: "124av-asfas",
+            positions_title: "Title",
+            positions_company: "dummy company"
+        };
+
         function onLinkedInLoad() {
             IN.User.authorize(onLinkedInAuth);
         }
 
         function onLinkedInAuth() {
-            console.log("eh");
-            // $.ajax({
-            //     xhrFields: {
-            //         cors: true,
-            //     },
-            //     url: 'https://api.linkedin.com/v1/people/~?format=json',
-            //     type: 'GET',
-            //     crossDomain: true,
-            //     dataType: 'jsonp',
-            //     beforeSend: function (xhr) {
-            //         xhr.setRequestHeader('ccess-Control-Allow-Origin', '*');
-            //     },
-            //     success: function() { console.log("Success"); },
-            //     error: function() { console.log('Failed!'); },
-            // });
+            IN.API.Profile("me").result( function(responseText) {
+                console.log('my profile');
+                console.log(responseText)
+                var response = responseText.values[0];
+                profile.firstName = response.firstName;
+                profile.headline = response.headline;
+                profile.id = response.id;
+                profile.lastName = response.lastName;
+                profile.pictureUrl = response.pictureUrl;
 
-            // IN.API.Raw("https://api.linkedin.com/v1/people/~?format=json").method("GET").body().result(processdata);
+                IN.API.Raw("/people/~:(location)?format=json").result(function(responseText){
+                    console.log('/people/~:(location)');
+                    console.log(responseText);
+                    if (responseText) {
+                        profile.location_name = responseText.location.name;
+                        profile.location_country_code = responseText.location.country.code;
+                    }
+                })
 
-            IN.API.Profile("me").result(processdata());
-            // $.get("https://api.linkedin.com/v1/people/~").done(function (data) {
-            //     console.log(data);
-            // });
+                IN.API.Raw("/people/~:(industry)?format=json").result(function(responseText){
+                    console.log('/people/~:(industry)');
+                    console.log(responseText);
+                    if (responseText.length) {
+                        profile.industry_code =  responseText.industry.code;
+                        profile.industry_froups =  responseText.industry.groups;
+                        profile.industry_description =  responseText.industry.description
+                    }
+                })
 
-            // setTimeout(function() {IN.User.logout(outLinkedInAuth); },5000);
+                IN.API.Raw("/people/~:(positions)?format=json").result(function(responseText){
+                    console.log('/people/~:(positions)');
+                    console.log(responseText);
+                    if (responseText.length) {
+                        profile.positions_id = responseText.positions[0].id;
+                        profile.positions_title = responseText.positions[0].title;
+                        profile.positions_company =  responseText.positions[0].company.name;
+                    }
+                })
+
+                IN.API.Raw("/people/~:(specialties)?format=json").result(function(responseText){
+                    console.log('/people/~:(specialties)');
+                    console.log(responseText);
+                    if (responseText) {
+                        profile.specialties = responseText.specialties;
+                    }
+                })
+                console.log(profile);
+            });
+
+            setTimeout(function() {IN.User.logout(outLinkedInAuth); },5000);
         }
+         function outLinkedInAuth() {
+             console.log("BYEYBE")
+         }
 
-        function processdata(data) {
-
-            console.log(data);
-            // $("#my-profile").text(response)
-        }
-
-        function outLinkedInAuth() {
-            // IN.API.Profile("me").fields("id","first-name", "last-name", "email-address").result(displayProfiles);
-            console.log("BYEYBE")
-        }
     </script>
+
+    <script type="text/javascript" src="index.js">  
+        hello();  
+    </script>
+
+
   </head>
 
   <body>
@@ -76,14 +121,6 @@
     <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <script src="vendor.bundle.js"></script>
     <script src="bundle.js"></script>
-
-    <div class="page">
-        <h1>My profile</h1>
-
-        <ul id="my-profile">
-            <li>My profile info will populate here</li>
-        </ul>
-    </div>
-
+    
   </body>
 </html>
